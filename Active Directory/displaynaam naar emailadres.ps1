@@ -8,7 +8,7 @@ foreach ($user in $users)
             { 
                 $positie = $user.IndexOf(" van de ")
                 $achternaam = $user.substring($positie + 8)
-                $mail = $voorletter + "vande" + $achternaam + "@middelburg.nl"
+                $mail = $voorletter + "vande" + $achternaam + "@pierik.it"
                 $userName = $voorletter + "vande" + $achternaam
                 $mail = $mail.tolower()
                 $username = $username.tolower()
@@ -17,7 +17,7 @@ foreach ($user in $users)
             { 
                 $positie = $user.IndexOf(" van der ")
                 $achternaam = $user.substring($positie + 9)
-                $mail = $voorletter + "vander" + $achternaam + "@middelburg.nl"
+                $mail = $voorletter + "vander" + $achternaam + "@pierik.it"
                 $userName = $voorletter + "vander" + $achternaam
                 
             }
@@ -25,7 +25,7 @@ foreach ($user in $users)
             {
                 $positie = $user.IndexOf(" van den ")
                 $achternaam = $user.substring($positie + 9)
-                $mail = $voorletter + "vanden" + $achternaam + "@middelburg.nl"
+                $mail = $voorletter + "vanden" + $achternaam + "@pierik.it"
                 $userName = $voorletter + "vanden" + $achternaam
                 
             }
@@ -33,7 +33,7 @@ foreach ($user in $users)
             { 
                 $positie = $user.IndexOf(" van ")
                 $achternaam = $user.substring($positie + 5)
-                $mail = $voorletter + "van" + $achternaam + "@middelburg.nl"
+                $mail = $voorletter + "van" + $achternaam + "@pierik.it"
                 $userName = $voorletter + "van" + $achternaam
                 
             }
@@ -41,21 +41,21 @@ foreach ($user in $users)
             { 
                 $positie = $user.IndexOf(" de ")
                 $achternaam = $user.substring($positie + 4)
-                $mail = $voorletter + "de" + $achternaam + "@middelburg.nl"
+                $mail = $voorletter + "de" + $achternaam + "@pierik.it"
                 $userName = $voorletter + "de" + $achternaam
             }
         else 
             {
             $positie = $user.indexof(" ")
             $achternaam = $user.substring($positie + 1)
-            $mail = $voorletter + $achternaam + "@middelburg.nl"
+            $mail = $voorletter + $achternaam + "@pierik.it"
             $userName = $voorletter + $achternaam
             }
 
     $mail = $mail.tolower()
     $username = $username.tolower()
     
-    $username + " , " + $mail |out-file "Z:\usersMDBNieuweInlog.cvs" -Append
+    $username + " , " + $mail |out-file "Z:\usersNieuweInlog.cvs" -Append
     
     $mail = $null
     $username = $null
