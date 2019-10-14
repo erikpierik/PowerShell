@@ -1,5 +1,5 @@
 #This form was created using POSHGUI.com  a free online gui designer for PowerShell
-#Het script is verder gemaakt door Erik Pierik (Centric SMC klantgroep 9) op 13-11-2018
+#Het script is verder gemaakt door Erik Pierik op 13-11-2018
 
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
