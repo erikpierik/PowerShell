@@ -10,10 +10,10 @@ function VerwijderProfiel {
     $script:ProfielPad = $profielen.selectedItem
           
     #controleer of de gebruiker een actieve sessie heeft, wanneer dat het geval is kan het profiel niet worden verwijderd
-    $script:loggedOnUsers = Get-WmiObject -Class win32_computersystem -ComputerName $script:computerName |select -expandproperty username
+    $script:loggedOnUsers = Get-WmiObject -Class win32_computersystem -ComputerName $script:computerName | Select-Object -expandproperty username
     If ($script:loggedOnUsers -ne $null)  
         {
-            $script:loggedOnUsers = Get-WmiObject -Class win32_computersystem -ComputerName $computerName |select -expandproperty username
+            $script:loggedOnUsers = Get-WmiObject -Class win32_computersystem -ComputerName $computerName |Select-Object -expandproperty username
             [System.Windows.Forms.MessageBox]::Show("De gebruiker $script:ProfielPad is nog ingelogd laat de gebruiker uitloggen en klik op OK om het nogmaals te proberen","Error",[System.Windows.Forms.MessageBoxButtons]::OK)
 			$form.dispose()
 			$form.close()
@@ -38,7 +38,7 @@ function VerwijderProfiel {
 			Rename-Item $script:remotePath $script:userName$script:extention
 
 			#verwijder vervolgens het profiel via WMI
-			Get-WmiObject -Class win32_userprofile -ComputerName $script:computerName | where {$_.LocalPath -eq $script:ProfielPad } | foreach {$_.Delete()}
+			Get-WmiObject -Class win32_userprofile -ComputerName $script:computerName | Where-Object {$_.LocalPath -eq $script:ProfielPad } | ForEach-Object {$_.Delete()}
 			[System.Windows.Forms.MessageBox]::Show("Het profiel van gebruiker $script:username is verwijderd, de gebruiker mag opnieuw inloggen","Success",[System.Windows.Forms.MessageBoxButtons]::OK)
 		}
 	Catch 
@@ -79,7 +79,7 @@ function checkConnection {
 #Haal de profielen op van de werkplek
 function Get_Users {
     $script:computerName = $ComputerNa.lines
-	$script:usersToReset = Get-WmiObject -Class win32_userprofile -ComputerName $computerName | where {$_.localpath -notlike "C:\Windows*" }
+	$script:usersToReset = Get-WmiObject -Class win32_userprofile -ComputerName $computerName | Where-Object {$_.localpath -notlike "C:\Windows*" }
     
     $form.dispose()
     $form.close()
