@@ -1,3 +1,5 @@
+#Anything but production! Do not use!
+
 Function Get-SiteCode {
     [cmdletBinding()]
     param (
